@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\QuestionnaireController;
+use App\Http\Controllers\QuestionnaireQuestionsController;
+use App\Http\Controllers\SurveyController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +18,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return ['Bob' => 'Dinoy'];
+    return redirect('/questionnaires');
 });
+
+Route::resource('questionnaires', QuestionnaireController::class)
+    ->middleware(['auth']);
+
+Route::resource('questionnaires.questions', QuestionnaireQuestionsController::class)
+    ->middleware(['auth']);
+
+Route::get('/surveys/{questionnaire}-{slug}', [SurveyController::class, 'show']);
+Route::post('/surveys/{questionnaire}-{slug}', [SurveyController::class, 'store']);
+
+require __DIR__ . '/auth.php';
+
+Auth::routes();

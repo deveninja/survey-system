@@ -1,3 +1,3 @@
-.antialiased {
-    background-color: bisque !important;
-}
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';

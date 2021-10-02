@@ -1,0 +1,32 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+
+
+
+a:hover {
+    text-decoration: none;
+}
+
+.notification {
+    position: absolute;
+    top: 4rem;
+    right: 1rem;
+    width: 100%;
+    z-index: 2;
+}
+
+.link {
+    color: hsl(0, 0%, 47%);
+    margin-left: 10px;
+    &:hover {
+        cursor: pointer;
+        color: $blue;
+    }
+}
